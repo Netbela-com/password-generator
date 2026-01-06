@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
-import Head from "next/head";
 
 type PasswordOptions = {
     lowercase: boolean;
