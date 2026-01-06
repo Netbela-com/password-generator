@@ -2,11 +2,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: password-generator
+  name: netbela-password-generator
   namespace: netbela
 spec:
   selector:
-    app: password-generator
+    app: netbela-password-generator
   ports:
     - port: 80
       targetPort: 3000

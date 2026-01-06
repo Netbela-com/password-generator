@@ -2,11 +2,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: password-generator-ingress
+  name: netbela-password-generator-ingress
   namespace: netbela
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.tls.certresolver: le
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+    traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt_prod
 spec:
   ingressClassName: traefik
   tls:
@@ -20,6 +20,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: password-generator
+                name: netbela-password-generator
                 port:
                   number: 80

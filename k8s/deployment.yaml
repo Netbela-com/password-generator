@@ -2,23 +2,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: password-generator
+  name: netbela-password-generator
   namespace: netbela
   labels:
-    app: password-generator
+    app: netbela-password-generator
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: password-generator
+      app: netbela-password-generator
   template:
     metadata:
       labels:
-        app: password-generator
+        app: netbela-password-generator
     spec:
+      dnsPolicy: Default
+      imagePullSecrets:
+        - name: ghcr-secret
       containers:
         - name: password-generator
-          image: ghcr.io/netbela-com/password:latest
+          image: ghcr.io/netbela-com/password-generator:latest
           ports:
             - containerPort: 3000
           resources:
